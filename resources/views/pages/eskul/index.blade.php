@@ -11,6 +11,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
+                <a href="eskul/createForm" class="btn btn-primary mb-3">Tambah Eskul</a>
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
@@ -18,8 +19,8 @@
                             <th>Nama Eskul</th>
                             <th>Guru Eskul</th>
                             <th>Hari</th>
-                            <th>Jam Mulai</th>
-                            <th>Jam Selesai</th>
+                            <th>Jam Mulai (WIB)</th>
+                            <th>Jam Selesai (WIB)</th>
                             <th>Tempat</th>
                         </tr>
                     </thead>
@@ -30,8 +31,8 @@
                             <td>{{ $eskul->nama_eskul }}</td>
                             <td>{{ $eskul->admin->nama_lengkap }}</td>
                             <td>{{ $eskul->hari }}</td>
-                            <td>{{ $eskul->jam_mulai }} WIB</td>
-                            <td>{{ $eskul->jam_selesai }} WIB</td>
+                            <td>{{ $eskul->jam_mulai }}</td>
+                            <td>{{ $eskul->jam_selesai }}</td>
                             <td>{{ $eskul->tempat }}</td>
                         </tr>
                         @endforeach

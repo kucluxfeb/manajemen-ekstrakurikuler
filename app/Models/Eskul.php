@@ -10,6 +10,7 @@ class Eskul extends Model
     use HasFactory;
 
     protected $table = 'eskul';
+    protected $guarded = [];
 
     public function admin()
     {
