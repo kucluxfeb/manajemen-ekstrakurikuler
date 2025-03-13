@@ -7,6 +7,6 @@ use Illuminate\Support\Facades\Route;
 Route::get("/", [HomeController::class, 'index']);
 
 Route::get("/eskul", [EskulController::class, 'index']);
-
-Route::get('eskul/createForm', [EskulController::class, 'createForm']);
-Route::post('eskul/create', [EskulController::class, 'create']);
+Route::get('/eskul/createForm', [EskulController::class, 'createForm']);
+Route::post('/eskul/create', [EskulController::class, 'create']);
+Route::delete('/eskul/{id}', [EskulController::class, 'delete']);

@@ -19,9 +19,10 @@
                             <th>Nama Eskul</th>
                             <th>Guru Eskul</th>
                             <th>Hari</th>
-                            <th>Jam Mulai (WIB)</th>
-                            <th>Jam Selesai (WIB)</th>
+                            <th>Jam Mulai</th>
+                            <th>Jam Selesai</th>
                             <th>Tempat</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,6 +35,15 @@
                             <td>{{ $eskul->jam_mulai }}</td>
                             <td>{{ $eskul->jam_selesai }}</td>
                             <td>{{ $eskul->tempat }}</td>
+                            <td>
+                                <form action="/eskul/{{ $eskul->id }}" method="POST" style="display: inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>

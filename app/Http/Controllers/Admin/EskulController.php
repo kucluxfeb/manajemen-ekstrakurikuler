@@ -51,4 +51,12 @@ class EskulController extends Controller
 
         return redirect('/eskul');
     }
+
+    public function delete($id)
+    {
+        $eskul = Eskul::where('id', $id);
+        $eskul->delete();
+
+        return redirect('/eskul');
+    }
 }
