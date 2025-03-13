@@ -36,13 +36,18 @@
                             <td>{{ $eskul->jam_selesai }}</td>
                             <td>{{ $eskul->tempat }}</td>
                             <td>
-                                <form action="/eskul/{{ $eskul->id }}" method="POST" style="display: inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm">
-                                        <i class="fa fa-trash"></i>
-                                    </button>
-                                </form>
+                                <div class="d-flex">
+                                    <form action="/eskul/{{ $eskul->id }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm mr-2">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </form>
+                                    <a href="/eskul/edit/{{ $eskul->id }}" class="btn btn-warning btn-sm">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                </div>
                             </td>
                         </tr>
                         @endforeach

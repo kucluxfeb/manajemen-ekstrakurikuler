@@ -52,6 +52,42 @@ class EskulController extends Controller
         return redirect('/eskul');
     }
 
+    public function edit($id)
+    {
+        $coaches = Admin::all();
+        $eskul = Eskul::findOrFail($id);
+
+        return view('pages.eskul.edit', [
+            'coaches' => $coaches,
+            'eskul' => $eskul
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'name' => 'required',
+            'admin_id' => 'required',
+            'day' => 'required',
+            'startTime' => 'required',
+            'endTime' => 'required',
+            'place' => 'required',
+            'description' => 'nullable'
+        ]);
+
+        Eskul::where('id', $id)->update([
+            'nama_eskul' => $request->input('name'),
+            'admin_id' => $request->input('admin_id'),
+            'hari' => $request->input('day'),
+            'jam_mulai' => $request->input('startTime'),
+            'jam_selesai' => $request->input('endTime'),
+            'tempat' => $request->input('place'),
+            'deskripsi' => $request->input('description')
+        ]);
+
+        return redirect('/eskul');
+    }
+
     public function delete($id)
     {
         $eskul = Eskul::where('id', $id);
