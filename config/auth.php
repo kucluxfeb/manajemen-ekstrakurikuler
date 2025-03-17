@@ -36,13 +36,13 @@ return [
     */
 
     'guards' => [
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
         'admin' => [
             'driver' => 'session',
-            'provider' => 'admin',
+            'provider' => 'admin'
+        ],
+        'siswa' => [
+            'driver' => 'session',
+            'provider' => 'siswa'
         ]
     ],
 
@@ -64,13 +64,13 @@ return [
     */
 
     'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', App\Models\User::class),
-        ],
         'admin' => [
             'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', App\Models\Admin::class),
+            'model' => env('AUTH_MODEL', App\Models\Admin::class)
+        ],
+        'siswa' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\Siswa::class)
         ]
 
         // 'users' => [

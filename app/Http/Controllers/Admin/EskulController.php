@@ -22,6 +22,7 @@ class EskulController extends Controller
     public function createForm()
     {
         $coaches = Admin::all();
+
         return view('pages.eskul.create', [
             'coaches' => $coaches
         ]);
@@ -29,7 +30,7 @@ class EskulController extends Controller
 
     public function create(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'name' => 'required',
             'admin_id' => 'required',
             'day' => 'required',

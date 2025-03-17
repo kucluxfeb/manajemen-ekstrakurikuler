@@ -10,18 +10,26 @@ class AuthController extends Controller
 {
     public function loginView()
     {
-        if (Auth::guard('admin')->check()) {
-            return back();
-        }
+        // if (Auth::guard('admin')->check()) {
+        //     return back();
+        // }
+
+        // if (Auth::guard('siswa')->check()) {
+        //     return back();
+        // }
 
         return view('pages.auth.login');
     }
 
     public function login(Request $request)
     {
-        if (Auth::guard('admin')->check()) {
-            return back();
-        }
+        // if (Auth::guard('admin')->check()) {
+        //     return back();
+        // }
+
+        // if (Auth::guard('siswa')->check()) {
+        //     return back();
+        // }
         
         $credentials = $request->validate([
             'email' => ['required','email'],
@@ -29,9 +37,11 @@ class AuthController extends Controller
         ]);
 
         if (Auth::guard('admin')->attempt($credentials)) {
-            $request->session()->regenerate();
+            return redirect()->route('home')->with('success','Login berhasil!');
+        }
 
-            return redirect()->intended('/');
+        if (Auth::guard('siswa')->attempt($credentials)) {
+            return redirect()->route('pendaftaran')->with('success','Login berhasil!');
         }
 
         return back()->withErrors([
@@ -41,7 +51,9 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
-        Auth::guard('admin')->logout();
+        // Auth::guard('admin')->logout();
+
+        // Auth::guard('siswa')->logout();
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
