@@ -26,7 +26,11 @@
 </head>
 
 <!-- Sidebar -->
-@include('layouts.components.sidebar')
+@if (Auth::guard('admin')->check())
+    @include('layouts.components.sidebar')
+@elseif (Auth::guard('siswa')->check())
+    @include('layouts.components.sidebar-siswa')
+@endif
 <!-- End of Sidebar -->
 
 <!-- Content Wrapper -->

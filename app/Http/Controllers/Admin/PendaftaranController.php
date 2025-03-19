@@ -15,7 +15,15 @@ class PendaftaranController extends Controller
     public function index()
     {
         $pendaftaran = Pendaftaran::with('siswa', 'eskul')->get();
+
         return view('pages.pendaftaran.index', compact('pendaftaran'));
+    }
+
+    public function indexSiswa()
+    {
+        $pendaftaran = Pendaftaran::with('siswa', 'eskul')->get();
+
+        return view('pages.pendaftaran.siswa', compact('pendaftaran'));
     }
 
     // Menampilkan form pendaftaran (Siswa)
@@ -92,6 +100,6 @@ class PendaftaranController extends Controller
         }
 
         $pendaftaran = Pendaftaran::where('siswa_id', $siswa->id)->with('eskul')->get();
-        return view('pages.pendaftaran.index', compact('pendaftaran'));
+        return view('pages.pendaftaran.siswa', compact('pendaftaran'));
     }
 }

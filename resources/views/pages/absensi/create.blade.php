@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+
 <div class="container-fluid">
 
     @if(session('success'))
@@ -21,9 +22,9 @@
 
                 <div class="form-group">
                     <label for="eskul_id" class="form-label">Ekstrakurikuler</label>
-                    <select name="eskul_id" id="eskul_id" class="form-control @error('eskul_id') is-invalid @enderror">
+                    <select name="eskul_id" id="eskul_id" class="form-control @error('eskul_id') is-invalid @enderror" required>
                         <option value="" disabled selected>Pilih Ekstrakurikuler</option>
-                        @foreach($eskuls as $eskul)
+                        @foreach ($eskuls as $eskul)
                             <option value="{{ $eskul->id }}">{{ $eskul->nama_eskul }}</option>
                         @endforeach
                     </select>
@@ -42,7 +43,7 @@
 
                 <div class="form-group">
                     <label for="status" class="form-label">Status</label>
-                    <select name="status" id="status" class="form-control @error('status') is-invalid @enderror">
+                    <select name="status" id="status" class="form-control @error('status') is-invalid @enderror" required>
                         <option value="hadir">Hadir</option>
                         <option value="izin">Izin</option>
                         <option value="sakit">Sakit</option>
@@ -63,11 +64,13 @@
 
                 <div class="card-footer d-flex justify-content-end">
                     <a href="/" class="btn btn-outline-secondary mr-3">Batal</a>
-                    <button type="submit" class="btn btn-primary">Kirim Absensi</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
+
             </form>
         </div>
     </div>
 
 </div>
+
 @endsection

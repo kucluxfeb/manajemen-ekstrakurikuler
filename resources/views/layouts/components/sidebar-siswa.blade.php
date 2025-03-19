@@ -1,20 +1,25 @@
 @php
     $menuList = [
         [
-            "title" => "Eskul",
-            "path" => "/eskul",
+            "title" => "Pendaftaran",
+            "path" => "/pendaftaran",
             "icon" => "fas fa-fw fa-chart-area",
         ],
         [
-            "title" => "Pendaftaran",
-            "path" => "/admin/pendaftaran",
+            "title" => "Daftar Pendaftaran",
+            "path" => "/pendaftaran/saya",
             "icon" => "fas fa-fw fa-chart-area",
         ],
         [
             "title" => "Absensi",
-            "path" => "/admin/absensi",
+            "path" => "/absensi/create",
             "icon" => "fas fa-fw fa-chart-area",
         ],
+        [
+            "title" => "Riwayat Absensi",
+            "path" => "/absensi/saya",
+            "icon" => "fas fa-fw fa-chart-area",
+        ]
     ];
 @endphp
 
